@@ -1,1 +1,1 @@
-web:    java -jar target/Mercadorias-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+web:    java -jar target/Mercadorias-1.0.jar
