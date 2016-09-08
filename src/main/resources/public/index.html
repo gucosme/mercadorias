@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Mercadorias</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
+          integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
+            integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
+            integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
+            integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-full navbar-dark bg-inverse">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mercadorias</a>
+            <div class="nav navbar-nav pull-xs-right">
+                <button class="btn btn-outline-warning">Lista de operações</button>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+    <div class="container">
+        <div class="card">
+            <form action="/mercadoria" method="post">
+                <h3 class="card-header">Nova mercadoria</h3>
+                <div class="card-block">
+                    <div class="form-group row">
+                        <div class="col-xs-4">
+                            <label for="codigo-mercadoria">Código</label>
+                            <input name="codigo-mercadoria" type="number" placeholder="Cód. mercadoria"
+                                   id="codigo-mercadoria" class="form-control">
+                        </div>
+                        <div class="col-xs-8">
+                            <label for="tipo-mercadoria">Tipo</label>
+                            <input name="tipo-mercadoria" type="text" placeholder="Tipo mercadoria" id="tipo-mercadoria"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="nome-mercadoria">Nome</label>
+                            <input name="nome-mercadoria" type="text" placeholder="Nome mercadoria" id="nome-mercadoria"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-6">
+                            <label for="quantidade-mercadoria">Quantidade</label>
+                            <input name="quanidade-mercadoria" type="text" placeholder="Qtd. itens"
+                                   id="quantidade-mercadoria" class="form-control">
+                        </div>
+                        <div class="col-xs-6">
+                            <label for="preco-mercadoria">Preço</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">R$</div>
+                                <input type="text" class="form-control" id="preco-mercadoria" placeholder="100.00">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="tipo-negocio" id="rdo-compra"
+                                       value="compra" checked> Compra
+                            </label>
+                            <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="tipo-negocio" id="rdo-venda"
+                                       value="venda"> Venda
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-outline-success pull-xs-right">Adicionar mercadoria</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

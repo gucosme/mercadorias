@@ -1,11 +1,15 @@
-import static spark.Spark.get;
-import static spark.Spark.port;
+import static spark.Spark.*;
 
 public class Main {
 
 	public static void main(String[] args) {
         port(getHerokuAssignedPort());
-        get("/hello", (req, res) -> "Hello Heroku World");
+
+        staticFiles.location("/public");
+
+        post("/mercadoria", (req, res) -> {
+            return req.queryParams("tipo-negocio");
+        });
     }
 
     static int getHerokuAssignedPort() {
