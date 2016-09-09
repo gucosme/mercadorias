@@ -9,6 +9,15 @@ public class Mercadoria {
     private String nome;
     private int quantidade;
     private float preco;
+    private String tipoNegocio;
+
+    public String getTipoNegocio() {
+        return tipoNegocio;
+    }
+
+    public void setTipoNegocio(String tipoNegocio) {
+        this.tipoNegocio = tipoNegocio;
+    }
 
     public Long getCodigo() {
         return codigo;
