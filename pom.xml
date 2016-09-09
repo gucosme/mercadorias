@@ -56,9 +56,9 @@
 			<version>2.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.3</version>
+			<groupId>com.heroku.sdk</groupId>
+			<artifactId>heroku-jdbc</artifactId>
+			<version>0.1.1</version>
 		</dependency>
 	</dependencies>
 </project>
