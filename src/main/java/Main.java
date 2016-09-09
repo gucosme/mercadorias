@@ -14,6 +14,8 @@ public class Main {
         staticFiles.location("/public");
 
         post("/mercadoria", (req, res) -> {
+            res.redirect("/");
+
             Mercadoria mercadoria = new Mercadoria();
             mercadoria.setCodigo( Long.parseLong( req.queryParams("codigo-mercadoria") ) );
             mercadoria.setTipo( req.queryParams("tipo-mercadoria") );
@@ -22,9 +24,7 @@ public class Main {
             mercadoria.setPreco( Float.parseFloat( req.queryParams("preco-mercadoria") ) );
             mercadoria.setTipoNegocio( req.queryParams("tipo-negocio") );
 
-            new MercadoriaDAO().insere(mercadoria);
-
-            res.redirect("/");
+            //new MercadoriaDAO().insere(mercadoria);
             return "";
         });
     }
