@@ -25,7 +25,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">Mercadorias</a>
             <div class="nav navbar-nav pull-xs-right">
-                <button class="btn btn-outline-warning">Lista de operações</button>
+                <a class="btn btn-outline-warning" href="operacoes.html">Lista de operações</a>
             </div>
         </div>
     </nav>
@@ -34,7 +34,7 @@
 
     <div class="container">
         <div class="card">
-            <form action="/mercadoria" method="post">
+            <form action="/mercadoria" method="post" datatype="json">
                 <h3 class="card-header">Nova mercadoria</h3>
                 <div class="card-block">
                     <div class="form-group row">
@@ -59,14 +59,14 @@
                     <div class="form-group row">
                         <div class="col-xs-6">
                             <label for="quantidade-mercadoria">Quantidade</label>
-                            <input name="quanidade-mercadoria" type="text" placeholder="Qtd. itens"
+                            <input name="quanidade-mercadoria" type="number" placeholder="Qtd. itens"
                                    id="quantidade-mercadoria" class="form-control">
                         </div>
                         <div class="col-xs-6">
                             <label for="preco-mercadoria">Preço</label>
                             <div class="input-group">
                                 <div class="input-group-addon">R$</div>
-                                <input type="text" class="form-control" id="preco-mercadoria" placeholder="100.00">
+                                <input type="number" class="form-control" id="preco-mercadoria" placeholder="100.00">
                             </div>
                         </div>
                     </div>
@@ -84,10 +84,19 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-outline-success pull-xs-right">Adicionar mercadoria</button>
+                    <button type="submit" class="btn btn-outline-success pull-xs-right" id="submit">Adicionar mercadoria</button>
                 </div>
             </form>
         </div>
+
+        <div class="alert alert-success fade in" style="display: none" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Mercadoria</strong> adiciona com sucesso</a>.
+        </div>
     </div>
+
+    <!-- <script src="js/index.js"></script> -->
 </body>
 </html>

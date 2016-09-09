@@ -1,3 +1,6 @@
+import com.google.gson.Gson;
+import entities.Mercadoria;
+
 import static spark.Spark.*;
 
 public class Main {
@@ -5,10 +8,16 @@ public class Main {
 	public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
+        Gson gson = new Gson();
+
         staticFiles.location("/public");
 
-        post("/mercadoria", (req, res) -> {
-            return req.queryParams("tipo-negocio");
+        post("/mercadoria", "application/json", (req, res) -> {
+            res.redirect("operacoes.html");
+            Mercadoria mercadoria = gson.fromJson(req.body(), Mercadoria.class);
+
+            System.out.println(mercadoria.toString());
+            return "";
         });
     }
 
