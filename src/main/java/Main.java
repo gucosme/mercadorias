@@ -24,7 +24,7 @@ public class Main {
             mercadoria.setPreco( Float.parseFloat( req.queryParams("preco-mercadoria") ) );
             mercadoria.setTipoNegocio( req.queryParams("tipo-negocio") );
 
-            //new MercadoriaDAO().insere(mercadoria);
+            new MercadoriaDAO().insere(mercadoria);
             return "";
         });
     }
