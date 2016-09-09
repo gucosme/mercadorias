@@ -13,10 +13,9 @@ public class Main {
         staticFiles.location("/public");
 
         post("/mercadoria", "application/json", (req, res) -> {
-            res.redirect("operacoes.html");
             Mercadoria mercadoria = gson.fromJson(req.body(), Mercadoria.class);
 
-            System.out.println(mercadoria.toString());
+            res.redirect("/");
             return "";
         });
     }

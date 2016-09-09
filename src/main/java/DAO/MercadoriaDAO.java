@@ -22,13 +22,17 @@ public class MercadoriaDAO implements MercadoriaDAOInterface{
 
     @Override
     public void insere(Mercadoria mercadoria) throws SQLException {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("CREATE TABLE IF NOT EXISTS mercadorias (\n");
-
-        stringBuffer.append(")");
+        StringBuffer sqlBuffer = new StringBuffer();
+        sqlBuffer.append("CREATE TABLE IF NOT EXISTS mercadorias (\n");
+        sqlBuffer.append("codigo integer PRIMARY KEY,\n");
+        sqlBuffer.append("tipo text,\n");
+        sqlBuffer.append("nome text,\n");
+        sqlBuffer.append("quantidade integer,\n");
+        sqlBuffer.append("preco numeric,\n");
+        sqlBuffer.append("tipoNegocio text)");
 
         Statement stmt = connection.createStatement();
-        stmt.executeUpdate(stringBuffer.toString());
+        stmt.executeUpdate(sqlBuffer.toString());
     }
 
     @Override
