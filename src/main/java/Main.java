@@ -9,8 +9,6 @@ public class Main {
 	public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
-        Gson gson = new Gson();
-
         staticFiles.location("/public");
 
         post("/mercadoria", (req, res) -> {
@@ -26,6 +24,10 @@ public class Main {
 
             new MercadoriaDAO().insere(mercadoria);
             return "";
+        });
+
+        get("/teste", (req, res) -> {
+            return new MercadoriaDAO().lista().toString();
         });
     }
 

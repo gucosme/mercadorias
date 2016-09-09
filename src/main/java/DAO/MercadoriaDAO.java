@@ -3,10 +3,7 @@ package DAO;
 import entities.Mercadoria;
 
 import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +37,22 @@ public class MercadoriaDAO implements MercadoriaDAOInterface{
     @Override
     public List<Mercadoria> lista() throws SQLException, URISyntaxException {
         List<Mercadoria> mercadorias = new ArrayList<>();
+        Mercadoria mercadoria;
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM mercadorias");
+
+        while (rs.next()) {
+            mercadoria = new Mercadoria();
+
+            mercadoria.setCodigo( rs.getLong(1) );
+            mercadoria.setTipo( rs.getString(2) );
+            mercadoria.setNome( rs.getString(3) );
+            mercadoria.setQuantidade( rs.getInt(4) );
+            mercadoria.setPreco( rs.getFloat(5) );
+            mercadoria.setTipoNegocio( rs.getString(6) );
+
+            mercadorias.add(mercadoria);
+        }
 
         return mercadorias;
     }
