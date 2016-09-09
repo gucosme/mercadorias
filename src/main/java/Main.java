@@ -1,3 +1,4 @@
+import DAO.MercadoriaDAO;
 import com.google.gson.Gson;
 import entities.Mercadoria;
 
@@ -12,8 +13,16 @@ public class Main {
 
         staticFiles.location("/public");
 
-        post("/mercadoria", "application/json", (req, res) -> {
-            Mercadoria mercadoria = gson.fromJson(req.body(), Mercadoria.class);
+        post("/mercadoria", (req, res) -> {
+            Mercadoria mercadoria = new Mercadoria();
+            mercadoria.setCodigo( Long.parseLong( req.queryParams("codigo-mercadoria") ) );
+            mercadoria.setTipo( req.queryParams("tipo-mercadoria") );
+            mercadoria.setNome( req.queryParams("nome-mercadoria") );
+            mercadoria.setQuantidade( Integer.parseInt( req.queryParams("quantidade-mercadoria") ) );
+            mercadoria.setPreco( Float.parseFloat( req.queryParams("preco-mercadoria") ) );
+            mercadoria.setTipoNegocio( req.queryParams("tipo-negocio") );
+
+            new MercadoriaDAO().insere(mercadoria);
 
             res.redirect("/");
             return "";

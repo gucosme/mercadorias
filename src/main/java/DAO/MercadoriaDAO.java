@@ -44,7 +44,7 @@ public class MercadoriaDAO implements MercadoriaDAOInterface{
         return mercadorias;
     }
 
-    public void criaTabela() throws SQLException, URISyntaxException{
+    private void criaTabela() throws SQLException, URISyntaxException{
         StringBuffer sqlBuffer = new StringBuffer();
         sqlBuffer.append("CREATE TABLE IF NOT EXISTS mercadorias (\n");
         sqlBuffer.append("codigo integer PRIMARY KEY,\n");
